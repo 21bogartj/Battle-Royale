@@ -1,0 +1,19 @@
+﻿<Properties StartupConfiguration="{A79D9CEA-E14F-AEDD-A3B5-7EAD4B2E3EFB}|Unit Tests">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerShoot.cs">
+    <Files>
+      <File FileName="Assets/Shared/Shooter.cs" Line="24" Column="24" />
+      <File FileName="Assets/Scripts/PlayerShoot.cs" Line="12" Column="30" />
+      <File FileName="Assets/Scripts/InputController.cs" Line="17" Column="17" />
+      <File FileName="Assets/Shared/GameManager.cs" Line="27" Column="11" />
+      <File FileName="Assets/Scripts/MoveController.cs" Line="7" Column="5" />
+      <File FileName="Assets/Scripts/ThirdPersonCamera.cs" Line="31" Column="80" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
