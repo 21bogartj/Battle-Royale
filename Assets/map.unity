@@ -1038,6 +1038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPoints: 5
+  timeToRespawn: 2
 --- !u!23 &1997741123
 MeshRenderer:
   m_ObjectHideFlags: 0

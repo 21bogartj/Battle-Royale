@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A79D9CEA-E14F-AEDD-A3B5-7EAD4B2E3EFB}</ProjectGuid>
+    <ProjectGuid>{A9C8C43D-3FFB-A731-3EDA-36F1575D372C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -62,7 +62,9 @@
      <Compile Include="Assets\Shared\Destructible.cs" />
      <Compile Include="Assets\Shared\GameManager.cs" />
      <Compile Include="Assets\Shared\Projectile.cs" />
+     <Compile Include="Assets\Shared\Respawner.cs" />
      <Compile Include="Assets\Shared\Shooter.cs" />
+     <Compile Include="Assets\Shared\Timer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
