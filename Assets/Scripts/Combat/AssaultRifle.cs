@@ -11,4 +11,12 @@ public class AssaultRifle : Shooter { //inherit form Shooter, not MonoBehaviour
             // we can fire the gun
         }
     }
+
+    void Update()
+    {
+        if (GameManager.Instance.InputController.Reload)
+        {
+            Reload();
+        }
+    }
 }

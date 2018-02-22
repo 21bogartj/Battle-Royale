@@ -51,14 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AssaultRifle.cs" />
-     <Compile Include="Assets\Scripts\Crosshair.cs" />
-     <Compile Include="Assets\Scripts\Health.cs" />
-     <Compile Include="Assets\Scripts\InputController.cs" />
-     <Compile Include="Assets\Scripts\MoveController.cs" />
-     <Compile Include="Assets\Scripts\Player.cs" />
-     <Compile Include="Assets\Scripts\PlayerShoot.cs" />
-     <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\Scripts\Camera\ThirdPersonCamera.cs" />
+     <Compile Include="Assets\Scripts\Combat\AssaultRifle.cs" />
+     <Compile Include="Assets\Scripts\Combat\Crosshair.cs" />
+     <Compile Include="Assets\Scripts\Combat\Health.cs" />
+     <Compile Include="Assets\Scripts\Combat\WeaponReloader.cs" />
+     <Compile Include="Assets\Scripts\Controllers\InputController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\MoveController.cs" />
+     <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
      <Compile Include="Assets\Shared\Destructible.cs" />
      <Compile Include="Assets\Shared\GameManager.cs" />
      <Compile Include="Assets\Shared\Projectile.cs" />

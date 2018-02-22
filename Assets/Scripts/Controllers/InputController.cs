@@ -9,11 +9,13 @@ public class InputController : MonoBehaviour {
     public float Horizontal;
     public Vector2 MouseInput;
     public bool Fire1; //for firing
+    public bool Reload;
 
     void Update() {
         Vertical = Input.GetAxis("Vertical");
         Horizontal = Input.GetAxis("Horizontal");
         MouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         Fire1 = Input.GetButton("Fire1");
+        Reload = Input.GetKey(KeyCode.R);
     }
 }
