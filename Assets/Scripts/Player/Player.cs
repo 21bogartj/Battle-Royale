@@ -37,7 +37,10 @@ public class Player : MonoBehaviour {
         }
     }
 
-    [SerializeField] float speed;
+    [SerializeField] float walkSpeed;
+    [SerializeField] float runSpeed;
+    [SerializeField] float crouchSpeed;
+    [SerializeField] float sprintSpeed;
     [SerializeField] MouseInput MouseControl;
 
 
@@ -50,16 +53,15 @@ public class Player : MonoBehaviour {
         GameManager.Instance.LocalPlayer = this;
 
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
         /*
          * Tests [E #3]
          * print("Horizontal: " + inputcontroller.
          * print("Mouse: " + inputcontroller.MouseInput);
          */
-        Vector2 direction = new Vector2(playerInput.Vertical * speed, playerInput.Horizontal * speed);
-        m_MoveController.Move(direction);
+        move();
 
         mouseInput.x = Mathf.Lerp(mouseInput.x, playerInput.MouseInput.x, 1f / MouseControl.Damping.x);
         mouseInput.y = Mathf.Lerp(mouseInput.y, playerInput.MouseInput.y, 1f / MouseControl.Damping.y);
@@ -67,5 +69,14 @@ public class Player : MonoBehaviour {
         transform.Rotate(Vector3.up * mouseInput.x * MouseControl.Sensitivity.x);
 
         crosshair.LookHeight(mouseInput.y * MouseControl.Sensitivity.y);
-	}
+    }
+
+    void move()
+    {
+        float moveSpeed = walkSpeed;
+        if (GameManager.Instance.InputController.Run)
+            moveSpeed = runSpeed;
+        Vector2 direction = new Vector2(playerInput.Vertical * moveSpeed, playerInput.Horizontal * moveSpeed);
+        m_MoveController.Move(direction);
+    }
 }

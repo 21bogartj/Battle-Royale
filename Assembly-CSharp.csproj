@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\Controllers\InputController.cs" />
      <Compile Include="Assets\Scripts\Controllers\MoveController.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
      <Compile Include="Assets\Shared\Destructible.cs" />
      <Compile Include="Assets\Shared\GameManager.cs" />
