@@ -14,5 +14,6 @@ public class PlayerAnimation : MonoBehaviour {
         animator.SetFloat("Vertical", GameManager.Instance.InputController.Vertical);
         animator.SetFloat("Horizontal", GameManager.Instance.InputController.Horizontal);
         animator.SetBool("isRunning", GameManager.Instance.InputController.Run);
+        animator.SetBool("isCrouched", GameManager.Instance.InputController.Crouch);
     }
 }
