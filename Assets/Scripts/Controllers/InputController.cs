@@ -13,6 +13,8 @@ public class InputController : MonoBehaviour {
     public bool Run;
     public bool Crouch;
     public bool Sprint;
+    public bool MouseWheelUp;
+    public bool MouseWheelDown;
 
     void Update() {
         Vertical = Input.GetAxis("Vertical");
@@ -22,5 +24,7 @@ public class InputController : MonoBehaviour {
         Reload = Input.GetKey(KeyCode.R);
         Run = Input.GetKey(KeyCode.LeftShift);
         Crouch = Input.GetKey(KeyCode.LeftControl);
+        MouseWheelUp = Input.GetAxis("Mouse ScrollWheel") > 0;
+        MouseWheelDown = Input.GetAxis("Mouse ScrollWheel") < 0;
     }
 }

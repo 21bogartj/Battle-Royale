@@ -42,17 +42,22 @@ public class Player : MonoBehaviour {
     [SerializeField] float crouchSpeed;
     [SerializeField] float sprintSpeed;
     [SerializeField] MouseInput MouseControl;
+    [SerializeField] AudioController footSteps;
+    [SerializeField] float minimumMovementToPlayFootstep;
+    [SerializeField] float walkingDelayBetweenClips;
+    [SerializeField] float RunningDelayBetweenClips;
 
 
     InputController playerInput;
     Vector2 mouseInput;
+    Vector3 prevPosition; //to implement movement sound
 	// Use this for initialization
 	void Awake () {
         // This was Test [E #3] inputcontroller = GameManager.Instance.InputController;
         playerInput = GameManager.Instance.InputController;
         GameManager.Instance.LocalPlayer = this;
-
-	}
+        prevPosition = transform.position;
+    }
 
     // Update is called once per frame
     void Update() {
@@ -74,9 +79,16 @@ public class Player : MonoBehaviour {
     void move()
     {
         float moveSpeed = walkSpeed;
+        float DelayBetweenClips = walkingDelayBetweenClips;
         if (GameManager.Instance.InputController.Run)
+        {
             moveSpeed = runSpeed;
+            DelayBetweenClips = RunningDelayBetweenClips;
+        }
         Vector2 direction = new Vector2(playerInput.Vertical * moveSpeed, playerInput.Horizontal * moveSpeed);
         m_MoveController.Move(direction);
+        if (Vector3.Distance(transform.position, prevPosition) > minimumMovementToPlayFootstep)
+            footSteps.Play(DelayBetweenClips);
+        prevPosition = transform.position;
     }
 }

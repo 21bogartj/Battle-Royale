@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shooter : MonoBehaviour {
     [SerializeField] float rateOfFire;
     [SerializeField] Projectile projectile;
+    [SerializeField] Transform hand;
     float nextFireAllowed;
     WeaponReloader reloader;
 
@@ -14,8 +15,15 @@ public class Shooter : MonoBehaviour {
     public bool canFire; //check player for fire. if nextFireAllowed based on rate of fire, return a boolean called this
     private void Awake()
     {
-        muzzle = transform.Find("Muzzle");
+        muzzle = transform.Find("Model/Muzzle");
         reloader = GetComponent<WeaponReloader>();
+    }
+
+    public void equip()
+    {
+        transform.SetParent(hand);
+        transform.localPosition = Vector3.zero;
+        transform.localRotation = Quaternion.identity;
     }
 
     public void Reload()
