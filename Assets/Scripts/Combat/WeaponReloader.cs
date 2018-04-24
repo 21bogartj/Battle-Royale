@@ -8,16 +8,27 @@ public class WeaponReloader : MonoBehaviour
     [SerializeField] float reloadTime;
     [SerializeField] int clipSize;
     [SerializeField] Container inventory;
+    [SerializeField] AudioController audioReload;
 
     int shotsFiredInClip;
     bool isReloading;
     System.Guid containerItemId;
+
+    public event System.Action OnAmmoChanged;
 
     public int ShotsRemainingInClip
     {
         get
         {
             return clipSize - shotsFiredInClip;
+        }
+    }
+
+    public int RemaingInClip
+    {
+        get
+        {
+            return inventory.GetRemainingAmount(containerItemId);
         }
     }
 
@@ -50,8 +61,7 @@ public class WeaponReloader : MonoBehaviour
         if (isReloading)
             return;
         isReloading = true;
-        print("Start Reloading");
-        
+        audioReload.Play();
         GameManager.Instance.Timer.add(() => {
             ExecuteToReload(inventory.TakeFromContainer(containerItemId, clipSize - ShotsRemainingInClip));
         }, reloadTime);
@@ -62,11 +72,14 @@ public class WeaponReloader : MonoBehaviour
     {
         isReloading = false;
         shotsFiredInClip -= amount;
-        print("Reloaded");
+        if(OnAmmoChanged != null)
+            OnAmmoChanged();
     }
 
     public void TakeFromClip(int amount)
     {
         shotsFiredInClip += amount;
+        if (OnAmmoChanged != null)
+            OnAmmoChanged();
     }
 }

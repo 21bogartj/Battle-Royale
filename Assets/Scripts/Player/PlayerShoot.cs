@@ -10,6 +10,15 @@ public class PlayerShoot : MonoBehaviour {
     int activeWeaponIndex = 0;
     bool canFire;
     Transform weaponsHolster;
+    public event System.Action<Shooter> OnWeaponSwich;
+
+    public Shooter ActiveWeapon
+    {
+        get
+        {
+            return activeWeapon;
+        }
+    }
 
     void Awake()
     {
@@ -46,8 +55,10 @@ public class PlayerShoot : MonoBehaviour {
         canFire = true;
         activeWeapon = weapons[index];
         deactivateWeapons();
-        weapons[index].gameObject.SetActive(true);
-        weapons[index].equip();
+        activeWeapon.gameObject.SetActive(true);
+        activeWeapon.equip();
+        if(OnWeaponSwich != null)
+            OnWeaponSwich(activeWeapon);
     }
 
     void Update()

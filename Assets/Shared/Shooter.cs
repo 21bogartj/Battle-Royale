@@ -8,11 +8,21 @@ public class Shooter : MonoBehaviour {
     [SerializeField] Transform hand;
     float nextFireAllowed;
     WeaponReloader reloader;
+    [SerializeField] AudioController audioFire;
+    [SerializeField] AudioController audioDropBulletToFloor;
 
     [HideInInspector]
     public Transform muzzle;
 
     public bool canFire; //check player for fire. if nextFireAllowed based on rate of fire, return a boolean called this
+    public WeaponReloader Reloader
+    {
+        get
+        {
+            return reloader;
+        }
+    }
+
     private void Awake()
     {
         muzzle = transform.Find("Model/Muzzle");
@@ -35,7 +45,7 @@ public class Shooter : MonoBehaviour {
 
     //virtual mean we can override it in the whole project
     public virtual void Fire() {
-        canFire = false;
+        canFire = false; 
         if (Time.time < nextFireAllowed)
             return;
         if (reloader) //if the weapon doesn't have reloader don't check
@@ -46,9 +56,11 @@ public class Shooter : MonoBehaviour {
                 return;
             reloader.TakeFromClip(1);
         }
+        audioFire.Play();
         // create bullet
         Instantiate(projectile, muzzle.position, muzzle.rotation);
         nextFireAllowed = Time.time + rateOfFire;
         canFire = true;
+        audioDropBulletToFloor.Play();
     }
 }
