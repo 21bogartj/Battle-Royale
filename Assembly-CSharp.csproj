@@ -54,11 +54,14 @@
      <Compile Include="Assets\Scripts\Camera\ThirdPersonCamera.cs" />
      <Compile Include="Assets\Scripts\Combat\AssaultRifle.cs" />
      <Compile Include="Assets\Scripts\Combat\Crosshair.cs" />
+     <Compile Include="Assets\Scripts\Combat\EWeaponType.cs" />
      <Compile Include="Assets\Scripts\Combat\Health.cs" />
      <Compile Include="Assets\Scripts\Combat\WeaponReloader.cs" />
      <Compile Include="Assets\Scripts\Controllers\InputController.cs" />
      <Compile Include="Assets\Scripts\Controllers\MoveController.cs" />
+     <Compile Include="Assets\Scripts\Pickups\AmmoPickUp.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerAim.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerShoot.cs" />
      <Compile Include="Assets\Scripts\UI\AmmoCounter.cs" />
@@ -66,6 +69,7 @@
      <Compile Include="Assets\Shared\Container.cs" />
      <Compile Include="Assets\Shared\Destructible.cs" />
      <Compile Include="Assets\Shared\GameManager.cs" />
+     <Compile Include="Assets\Shared\PickUpItems.cs" />
      <Compile Include="Assets\Shared\Projectile.cs" />
      <Compile Include="Assets\Shared\Respawner.cs" />
      <Compile Include="Assets\Shared\Shooter.cs" />

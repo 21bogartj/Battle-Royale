@@ -5,6 +5,11 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour {
 
     private Animator animator;
+	private PlayerAim playerAim {
+		get {
+			return GameManager.Instance.LocalPlayer.playerAim;
+		}
+	}
 
 	void Awake () {
         animator = GetComponentInChildren<Animator>();
@@ -15,5 +20,6 @@ public class PlayerAnimation : MonoBehaviour {
         animator.SetFloat("Horizontal", GameManager.Instance.InputController.Horizontal);
         animator.SetBool("isRunning", GameManager.Instance.InputController.Run);
         animator.SetBool("isCrouched", GameManager.Instance.InputController.Crouch);
+		animator.SetFloat ("AimAngle", playerAim.GetAngle ());
     }
 }

@@ -9,6 +9,7 @@ public class WeaponReloader : MonoBehaviour
     [SerializeField] int clipSize;
     [SerializeField] Container inventory;
     [SerializeField] AudioController audioReload;
+    [SerializeField] EWeaponsType weaponType;
 
     int shotsFiredInClip;
     bool isReloading;
@@ -36,7 +37,7 @@ public class WeaponReloader : MonoBehaviour
     {
         inventory.OnContainerReady += () =>
         {
-            containerItemId = inventory.add(this.name, maxAmmo);
+            containerItemId = inventory.add(weaponType.ToString(), maxAmmo);
         };
     }
 
@@ -72,13 +73,17 @@ public class WeaponReloader : MonoBehaviour
     {
         isReloading = false;
         shotsFiredInClip -= amount;
-        if(OnAmmoChanged != null)
-            OnAmmoChanged();
+        HandleOnAmmoChanged();
     }
 
     public void TakeFromClip(int amount)
     {
         shotsFiredInClip += amount;
+        HandleOnAmmoChanged();
+    }
+
+    public void HandleOnAmmoChanged()
+    {
         if (OnAmmoChanged != null)
             OnAmmoChanged();
     }

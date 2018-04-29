@@ -33,6 +33,13 @@ public class Container : MonoBehaviour {
             amountTaken += value;
             return value;
         }
+
+        public void Set(int value)
+        {
+            amountTaken -= value;
+            if (amountTaken < 0)
+                amountTaken = 0;
+        }
         //contrustor:
         public ContainerItem()
         {
@@ -59,6 +66,7 @@ public class Container : MonoBehaviour {
         return items.Last().Id;
     }
 
+
     ContainerItem GetContainerItem(System.Guid id)
     {
         var containerItem = items.Where(x => x.Id == id).FirstOrDefault();
@@ -71,6 +79,14 @@ public class Container : MonoBehaviour {
         if (containerItem == null)
             return -1;
         return containerItem.Get(amount);
+    }
+
+    public void PutToContainer(string name, int amount)
+    {
+        var containerItem = items.Where(x => x.Name == name).FirstOrDefault();
+        if (containerItem == null)
+            return;
+        containerItem.Set(amount);
     }
 
     public int GetRemainingAmount(System.Guid id)

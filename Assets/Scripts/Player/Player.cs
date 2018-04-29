@@ -47,6 +47,7 @@ public class Player : MonoBehaviour {
     [SerializeField] float walkingDelayBetweenClips;
     [SerializeField] float RunningDelayBetweenClips;
 
+	public PlayerAim playerAim;
 
     InputController playerInput;
     Vector2 mouseInput;
@@ -73,7 +74,8 @@ public class Player : MonoBehaviour {
 
         transform.Rotate(Vector3.up * mouseInput.x * MouseControl.Sensitivity.x);
 
-        crosshair.LookHeight(mouseInput.y * MouseControl.Sensitivity.y);
+		crosshair.LookHeight (mouseInput.y * MouseControl.Sensitivity.y);
+		playerAim.SetRotation (mouseInput.y * MouseControl.Sensitivity.y);
     }
 
     void move()
