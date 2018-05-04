@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MoveController))]
+[RequireComponent(typeof(PlayerState))]
 public class Player : MonoBehaviour {
     // This was Test [E #3] InputController inputcontroller;
     [System.Serializable]
@@ -26,14 +27,14 @@ public class Player : MonoBehaviour {
         }
     }
 
-    private Crosshair m_crosshair;
-    public Crosshair crosshair
+    private PlayerState playerState;
+    public PlayerState PlayerState
     {
         get
         {
-            if (m_crosshair == null)
-                m_crosshair = GetComponentInChildren<Crosshair>();
-            return m_crosshair;
+            if (playerState == null)
+                playerState = GetComponentInChildren<PlayerState>();
+            return playerState;
         }
     }
 
@@ -74,7 +75,7 @@ public class Player : MonoBehaviour {
 
         transform.Rotate(Vector3.up * mouseInput.x * MouseControl.Sensitivity.x);
 
-		crosshair.LookHeight (mouseInput.y * MouseControl.Sensitivity.y);
+		//crosshair.LookHeight (mouseInput.y * MouseControl.Sensitivity.y);
 		playerAim.SetRotation (mouseInput.y * MouseControl.Sensitivity.y);
     }
 

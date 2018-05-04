@@ -235,5 +235,3 @@ D:\projects\BattleRoyale\BattleRoyale\Temp\bin\Debug\UnityEditor.iOS.Extensions.
 D:\projects\BattleRoyale\BattleRoyale\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 D:\projects\BattleRoyale\BattleRoyale\obj\Debug\Assembly-CSharp.dll
 D:\projects\BattleRoyale\BattleRoyale\obj\Debug\Assembly-CSharp.pdb
-D:\projects\BattleRoyale\BattleRoyale\Temp\bin\Debug\Assembly-CSharp.dll.CodeAnalysisLog.xml
-D:\projects\BattleRoyale\BattleRoyale\Temp\bin\Debug\Assembly-CSharp.dll.lastcodeanalysissucceeded
