@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour {
     WeaponReloader reloader;
     [SerializeField] AudioController audioFire;
     [SerializeField] AudioController audioDropBulletToFloor;
+    [SerializeField] Transform aimingTarget;
 
     [HideInInspector]
     public Transform muzzle;
@@ -57,6 +58,7 @@ public class Shooter : MonoBehaviour {
             reloader.TakeFromClip(1);
         }
         audioFire.Play();
+        muzzle.LookAt(aimingTarget); //To projectile the bullets to crosshair
         // create bullet
         Instantiate(projectile, muzzle.position, muzzle.rotation);
         nextFireAllowed = Time.time + rateOfFire;
